@@ -21,7 +21,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Tessa','Fondeur','Hauts-de-France','pokemon123'),(2,'Val','Vakarian','Occitanie','patacrepe'),(3,'Marie','VanGrevestruc','Grand-Est','redbull');
+INSERT INTO `user` VALUES (1,'Tessa','Fondeur','Hauts-de-France','pokemon123'),(2,'Val','Vakarian','Occitanie','patacrepe'),(3,'Anne','Marchasson','Nord','2611');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 

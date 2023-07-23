@@ -1,6 +1,110 @@
 import axios from "axios";
 import "./SlideInformation.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Resume from "../resume/resume";
+
+const categories = [
+  { min: -Infinity, max: 90, name: "1-HC" },
+  { min: 90, max: 165, name: "2-C" },
+  { min: 165, max: 255, name: "3-B" },
+  { min: 255, max: 375, name: "4-A" },
+  { min: 375, max: Infinity, name: "5-Premium" },
+];
+
+const calculPrice = (information) => {
+  let price = 0;
+  let Val_M = 0;
+  let Val_S = 0;
+  let solde = 0;
+
+  // Calculate RAM
+  switch (information.RAM) {
+    case "2":
+      Val_M = 30;
+      break;
+    case "4":
+      Val_M = 32;
+      break;
+    case "6":
+      Val_M = 54;
+      break;
+    case "8":
+      Val_M = 60;
+      break;
+    case "12":
+      Val_M = 70;
+      break;
+    case "16":
+      Val_M = 75;
+      break;
+    default:
+      Val_M = 0;
+      break;
+  }
+
+  // Calculate memory
+  switch (information.Memory) {
+    case "16":
+      Val_S = 31;
+      break;
+    case "32":
+      Val_S = 45;
+      break;
+    case "64":
+      Val_S = 66;
+      break;
+    case "128":
+      Val_S = 70;
+      break;
+    case "256":
+      Val_S = 78;
+      break;
+    case "+512":
+      Val_S = 88;
+      break;
+    default:
+      Val_S = 0;
+      break;
+  }
+
+  // Calculate solde
+  switch (information.Device_condition) {
+    case "Fin de Vie":
+      solde = -80;
+      break;
+    case "Réparable":
+      solde = -30;
+      break;
+    case "Bloqué":
+      solde = -10;
+      break;
+    case "Reconditionnable":
+      solde = -5;
+      break;
+    case "Reconditionné":
+      solde = 0;
+      break;
+    case "Comme neuf":
+      solde = 50;
+      break;
+    default:
+      solde = 0;
+      break;
+  }
+
+  // Calculate initial price
+  const initialPrice = Val_M + Val_S + solde;
+  price = initialPrice >= 0 ? initialPrice : 0;
+
+  // Apply category
+  categories.forEach((category) => {
+    if (price >= category.min && price < category.max) {
+      price = `${price} - ${category.name}`;
+    }
+  });
+
+  return price;
+};
 
 function SlideInformation() {
   // useState info
@@ -90,6 +194,8 @@ function SlideInformation() {
     handleClickInformation(evt);
     changeStyleButtonClickStock();
   };
+
+  const [showRecap, setShowRecap] = useState(false);
   // handle Submit Information formulaire
   const handleSubmitInformation = (evt) => {
     evt.preventDefault();
@@ -97,10 +203,30 @@ function SlideInformation() {
       .post(`${import.meta.env.VITE_BACKEND_URL}/model`, information)
       .then(() => {
         getUserId();
+        setShowRecap(true);
       })
       .catch((err) => {
         console.error(err);
       });
+  };
+  const [price, setPrice] = useState("");
+  // useState user
+
+  useEffect(() => {
+    setPrice(calculPrice(information));
+  }, [information]);
+
+  const showRecapComponent = () => {
+    return (
+      <Resume
+        mobileName={information.Model_name}
+        brand={information.Brand}
+        ram={information.RAM}
+        memory={information.Memory}
+        price={price}
+        other={information.Other}
+      />
+    );
   };
 
   return (
@@ -399,6 +525,7 @@ function SlideInformation() {
           <span>VALIDER</span>
         </button>
       </form>
+      {showRecap && showRecapComponent()}
     </div>
   );
 }

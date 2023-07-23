@@ -1,26 +1,24 @@
-import "./recap.scss";
+import "./resume.scss";
 import PropTypes from "prop-types";
 
-function Recap(props) {
-  const { mobileName, brand, ram, memory, price, category, other } = props;
+function Resume(props) {
+  const { mobileName, brand, ram, memory, price, other } = props;
   return (
-    <div className="recapContainer">
+    <div className="resumeContainer">
       <h1 className="brand">{brand}</h1>
       <h2 className="model">{mobileName}</h2>
-
-      <div className="recapCategory">
-        {/* <h3 className="categoryTitle">Category</h3> */}
-        <span>{category}</span>
+      <div className="resumeCategory">
+        <span className="category"> {price} </span>
       </div>
       <div className="circles">
         <div className="recapCondition">
           {/* <span>{etat}</span> */}
           <h3 className="conditionTitle">Etat</h3>
         </div>
-
         <div className="recapRam">
           <span>
-            {ram} <h3 className="ramTitle">RAM</h3>
+            {ram}
+            <h3 className="ramTitle">RAM</h3>
           </span>
         </div>
 
@@ -31,11 +29,11 @@ function Recap(props) {
           </span>
         </div>
       </div>
-      <div className="priceBtn">
-        <h4 className="price_title">Prix de vente</h4>
-        <button type="submit" className="stockBtn">
-          {price} €
-        </button>
+      <div className="price_Btn">
+        {/* <h4 className="price_title">Prix de vente</h4> */}
+        {/* <button type="submit" className="stockBtn">
+         
+        </button> */}
       </div>
       <div className="comments">
         {" "}
@@ -46,10 +44,9 @@ function Recap(props) {
     </div>
   );
 }
-
-Recap.propTypes = {
+export default Resume;
+Resume.propTypes = {
   mobileName: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
   // etat: PropTypes.string.isRequired,
   ram: PropTypes.string.isRequired,
   memory: PropTypes.string.isRequired,
@@ -57,5 +54,3 @@ Recap.propTypes = {
   other: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
 };
-
-export default Recap;

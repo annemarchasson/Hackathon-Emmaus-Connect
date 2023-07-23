@@ -13,7 +13,17 @@
     background-color: $white;
   }
 }
-
+.bm-item-list {
+  padding-bottom: 5vh !important;
+  margin-left: 4vh;
+}
+.bm-burger-button img {
+  width: 10vw !important;
+  height: 5vh !important;
+}
+.bm-cross {
+  display: none !important;
+}
 .logoImgMobile {
   height: 9vh;
   margin-top: -5%;
