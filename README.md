@@ -1,53 +1,28 @@
-## Concept
+Hackathon Emmaüs Connect - Projet
+Ce projet a été réalisé dans le cadre d'un hackathon de la Wild Code School. L'objectif était de concevoir une application en seulement 2 jours pour estimer le prix de revente d'un portable, enregistrer ce don dans une base de données et faciliter le développement d'Emmaüs Connect.
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+Emmaüs Connect
+Emmaüs Connect est une organisation qui accompagne les personnes les plus isolées en favorisant leur inclusion numérique à travers trois principaux leviers :
 
-## Setup & Use
+Accès à des moyens de connexion à prix solidaire : Emmaüs Connect offre des solutions abordables pour permettre à tous d'accéder à Internet.
 
-### Windows users
+Accès à du matériel reconditionné bon marché : L'organisation propose du matériel informatique reconditionné à des prix abordables, facilitant ainsi l'accès aux outils numériques.
 
-Be sure to run these commands in a git terminal to avoid [issues with newline formats](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats):
+Accès à de l'apprentissage gratuit pour acquérir des compétences essentielles : Emmaüs Connect propose des programmes d'apprentissage gratuits afin d'aider les individus à développer des compétences numériques indispensables.
 
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
+Technologies utilisées dans le projet :
+Front-end : React (bibliothèque JavaScript)
+Back-end : Node.js (environnement d'exécution), Express (framework web)
+Base de données : MongoDB (base de données NoSQL)
+Styling : CSS (Cascading Style Sheets)
+Gestion des requêtes HTTP : Axios (bibliothèque JavaScript)
+Contrôle de version : Git (système de contrôle de version)
+Objectif du projet :
+Le projet consistait à développer une application web utilisant les technologies mentionnées ci-dessus. Cette application permet d'estimer le prix de revente d'un portable, de stocker ce don dans une base de données, et d'aider les bénévoles d'Emmaüs Connect dans leur mission d'inclusion numérique en fournissant des ressources essentielles aux personnes les plus isolées.
 
-### Project Initialization
-
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
-- Run command `npm install`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
-
-### Available Commands
-
-- `migrate` : Run the database migration script
-- `dev` : Starts both servers (frontend + backend) in one terminal
-- `dev-front` : Starts the React frontend server
-- `dev-back` : Starts the Express backend server
-- `lint` : Runs validation tools, and refuses unclean code (will be executed on every _commit_)
-- `fix` : Fixes linter errors (run it if `lint` growls on your code !)
-
-## FAQ
-
-### Tools
-
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-- _Nodemon_ : Allows to restart the server everytime a .js file is udated
-
-### Deployment
-
-For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
-
-- CAPROVER_BACK_APPNAME : name app on caprover
-- CAPROVER_FRONT_APPNAME : name app on caprover
-- CAPROVER_PASSWORD : password caprover
-- CAPROVER_SERVER : link of domain
+Initialisation du projet
+Dans VSCode, installez les plugins Prettier - Code formatter et ESLint et configurez-les.
+Clonez ce dépôt, puis entrez dans le répertoire.
+Si vous utilisez yarn ou pnpm, adaptez la configuration config/cli dans package.json.
+Exécutez la commande npm install.
+NB: Pour lancer le serveur backend, vous aurez besoin d'un fichier d'environnement avec les identifiants de la base de données. Vous trouverez un modèle dans backend/.env.sample.
